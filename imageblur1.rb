@@ -35,19 +35,12 @@ class Image
 
         location << [i, row_i]
 
-      #puts "#{i} and #{row_i}"
-
-      #puts "#{location}"
-
       end
 
       end  
 
     end
 
-
-
-    #blurred_image = []
 
     location.each do |i, row_i|
 
@@ -59,18 +52,9 @@ class Image
 
       image[i][row_i+1] = 0
 
-      #blurred_image<<
-
-    #puts image.join
-
     end  
 
   end
-
-
-
-  
-
 
 
   def blur(distance)
@@ -79,14 +63,12 @@ class Image
 
       blurred
 
-    end
+end
 
-  end
-
+end
     
 
 end
-
 
 
 image = Image.new([
