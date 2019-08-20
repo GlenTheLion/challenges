@@ -18,6 +18,19 @@ class Image
 
   end
 
+  def blur
+
+    @image_data.each do |row| 
+
+      row.each do |pixel| 
+        puts pixel 
+
+      end
+
+    end
+
+  end
+
 end
 
 
@@ -36,4 +49,4 @@ image1 = Image.new([
 
 
 
-image1.output_image
+image1.blur
