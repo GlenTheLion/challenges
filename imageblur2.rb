@@ -45,17 +45,17 @@ def output_image
 end
 
                 
-        numbers.each do |number|
+numbers.each do |number|
 
-        @image[number[0]] [number [1] + 1] = 1 <= @image[number[0]].length - 1
+ @image[number[0]] [number [1] + 1] = 1 <= @image[number[0]].length - 1
 
-        @image[number[0]][number[1] - 1] = 1 if number[1] - 1 >= 0
+ @image[number[0]][number[1] - 1] = 1 if number[1] - 1 >= 0
 
-        @image[number[0] + 1][number[1]] = 1 if number[0] + 1 <= @image.length - 1
+@image[number[0] + 1][number[1]] = 1 if number[0] + 1 <= @image.length - 1
 
-        @image[number[0] - 1][number[1]] = 1 if number[0] - 1 >= 0
+@image[number[0] - 1][number[1]] = 1 if number[0] - 1 >= 0
 
-    end
+end
 
 end
 

@@ -10,8 +10,6 @@ class Card
 
   end
 
-
-
   def output_card
 
     puts "#{self.rank} of #{self.suit}"

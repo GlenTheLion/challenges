@@ -41,40 +41,32 @@ class Image
 
         numbers = []
 
-        @image.each_with_index do |row, i|
+ @image.each_with_index do |row, i|
 
-            row.each_with_index do |j, row_i|
+    row.each_with_index do |j, row_i|
 
-                numbers << [i, row_i] if j == 1
-
-            end
-
-        end
-
-        
-
-        numbers.each do |number|
-
-            @image[number[0]] [number [1] + 1] = 1 <= @image[number[0]].length - 1
-
-            @image[number[0]][number[1] - 1] = 1 if number[1] - 1 >= 0
-
-            @image[number[0] + 1][number[1]] = 1 if number[0] + 1 <= @image.length - 1
-
-            @image[number[0] - 1][number[1]] = 1 if number[0] - 1 >= 0
-
-        end
-
-    end
-
-    
+    numbers << [i, row_i] if j == 1
 
 end
 
+end
 
+        
+numbers.each do |number|
 
+    @image[number[0]] [number [1] + 1] = 1 <= @image[number[0]].length - 1
 
+    @image[number[0]][number[1] - 1] = 1 if number[1] - 1 >= 0
 
+    @image[number[0] + 1][number[1]] = 1 if number[0] + 1 <= @image.length - 1
+
+    @image[number[0] - 1][number[1]] = 1 if number[0] - 1 >= 0
+
+end
+
+end
+
+end
 
 
 image = Image.new([
