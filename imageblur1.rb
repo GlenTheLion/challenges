@@ -1,13 +1,11 @@
 class Image
 
-  attr_accessor :image
+     
+ def initialize(image_data)
+ 
+ @image_data = image_data
 
-
-  def initialize(image)
-
-      @image = image
-
-  end
+end
 
 
 
@@ -25,9 +23,6 @@ end
 
 
 
-
-
-
 image = Image.new([
 
   [0, 0, 0, 0, ],
@@ -40,6 +35,5 @@ image = Image.new([
 
 ])
 
-image.blur(2)
 
 image.output_image
