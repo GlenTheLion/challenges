@@ -1,52 +1,97 @@
-class Image
+class Image                
 
-     
-  def initialize(image_data)
- 
-    @image_data = image_data
-
-  end
+  attr_accessor :data    
 
 
-  def output_image
+  def initialize(data)      
 
-    @image_data.each do |row|
-
-      puts row.join
-
-    end
+    @data = data            
 
   end
+
+
+
+  def find_on
+
+    on = [ ]                
+
+      data.each_with_index do |on, row_index|   
+
+        on.each_with_index do |off, col_index|  
+
+          if off == 1
+
+          on << [row_index, col_index]
+
+          end                  
+
+        end                    
+
+    end                        
+
+    return on
+
+  end                          
+
+
+
+
 
   def blur
 
-    @image_data.each do |row| 
+    number_of_rows = data.length
 
-      row.each do |pixel| 
-        puts pixel 
+    number_of_columns = data[0].length 
 
-      end
+    find_on.each do |place|   
+
+      data[place[0]][place[1] + 1] = 1 unless place[1]+1 >= number_of_columns         
+
+      data[place[0]][place[1] - 1] = 1 unless place[1] == 0                           
+
+      data[place[0] + 1][place[1]] = 1 unless place[0]+1 >= number_of_rows            
+
+      data[place[0] - 1][place[1]] = 1 unless place[0] == 0                           
+
+                      
+
+    end
+
+  end                          
+
+
+
+
+ def output_image
+
+    data.each do |x|
+
+      puts x.join
 
     end
 
   end
 
-end
-
-
-image1 = Image.new([
-
-  [0, 0, 0, 0, ],
-
-  [0, 1, 0, 0, ],
-
-  [0, 0, 0, 0, ],
-
-  [0, 0, 0, 1, ],
-
-])
 
 
 
 
-image1.blur
+end                          
+  
+
+  image = Image.new([              
+  [0, 0, 0, 0],           
+
+  [0, 1, 1, 0],
+
+  [1, 1, 1, 1],
+
+  [0, 1, 1, 0]
+
+])                            
+
+
+
+image.blur
+
+image.output_image

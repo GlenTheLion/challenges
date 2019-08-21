@@ -1,75 +1,35 @@
 class Card
-
   attr_accessor :rank, :suit
-
+ 
   def initialize(rank, suit)
-
     @rank = rank
-
     @suit = suit
-
   end
-
+ 
   def output_card
-
-    puts "#{self.rank} of #{self.suit}"
-
+    puts "The #{@rank} of #{@suit}"
   end
-
-
-
-  def self.random_card
-
-    Card.new(rand(10), :spades)
-
-  end
-
 end
-
-
-
+ 
 class Deck
-
   def initialize
-
-    @cards =[]
-
-    @cards << Card.new(10, :spades)
-
-    @cards << Card.new(9, :diamonds)
-
+    @ranks = [*(2..10), 'J', 'Q', 'K', 'A']
+    @suits = ['C', 'H', 'S', 'D']
+    @cards = []
+ 
+    @ranks.each do |rank|
+      @suits.each do |suit|
+        @cards << Card.new(rank, suit)
+      end
+    end
+  
+  @cards.shuffle!
   end
-
-
-
-  def shuffle
-
-    @cards.shuffle!
-
+ 
+  def deal (number)
+    number.times {@cards.shift.output_card}
   end
-
-
-
-  def output
-
-    @cards.each do |card|
-
-      card.output_card
-
-  end
-
 end
-
-
-
-deck= Deck.new
-
-deck.shuffle
-
-deck.output
-
-card = Card.random_card
-
-card.output_card
-
-end
+ 
+deck = Deck.new
+deck.deal(7)
