@@ -11,7 +11,7 @@ class Image
 
 
 
-  def find_on
+  def active
 
     on = [ ]                
 
@@ -43,7 +43,7 @@ class Image
 
     number_of_columns = data[0].length 
 
-    find_on.each do |place|   
+    active.each do |place|   
 
       data[place[0]][place[1] + 1] = 1 unless place[1]+1 >= number_of_columns         
 
